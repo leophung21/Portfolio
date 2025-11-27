@@ -10,11 +10,11 @@
     --primary-dark: #556b2f;
     --secondary-color: #8fbc8f;
     --accent-color: #9acd32;
-    --text-primary: #2d3e1f;
-    --text-secondary: #4a5d2e;
+    --text-primary: #ffffff;
+    --text-secondary: #f5deb3;
     --bg-primary: #f5f5dc;
     --bg-secondary: #e8e8d3;
-    --bg-card: #ffffff;
+    --bg-card: #f5f5f0;
     --bg-dark: #2d3e1f;
     --border-color: #b8c99a;
     --shadow: 0 4px 6px -1px rgba(107, 142, 35, 0.15), 0 2px 4px -1px rgba(107, 142, 35, 0.1);
@@ -23,19 +23,20 @@
 }
 
 body {
-    font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-    line-height: 1.6;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    line-height: 1.8;
     color: var(--text-primary);
     background: 
-        linear-gradient(135deg, #f5f5dc 0%, #e8e8d3 50%, #f0f0e0 100%),
-        repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(107, 142, 35, 0.1) 20px, rgba(107, 142, 35, 0.1) 21px),
-        repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(107, 142, 35, 0.1) 20px, rgba(107, 142, 35, 0.1) 21px);
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        #6b8e23;
     background-attachment: fixed;
     scroll-behavior: smooth;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     position: relative;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8), -1px -1px 0px rgba(0, 0, 0, 0.5);
 }
 
 .container {
@@ -78,19 +79,49 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 3rem;
+    align-items: center;
 }
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-primary);
+    color: #2d3e1f;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+    image-rendering: pixelated;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 20px;
+    background: #2d3e1f;
+    box-shadow: 
+        1px 0 0 rgba(255, 255, 255, 0.5),
+        -1px 0 0 rgba(0, 0, 0, 0.3),
+        0 1px 0 rgba(0, 0, 0, 0.2),
+        0 -1px 0 rgba(255, 255, 255, 0.3);
+    image-rendering: pixelated;
+}
+
+.nav-link:first-child::before {
+    display: none;
+}
+
+.nav-link:first-child::before {
+    display: none;
 }
 
 .nav-link:hover {
-    color: var(--primary-color);
+    color: #6b8e23;
 }
 
 .nav-link::after {
@@ -99,9 +130,10 @@ body {
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
-    background: var(--primary-color);
+    height: 3px;
+    background: #6b8e23;
     transition: width 0.3s ease;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 .nav-link:hover::after {
@@ -128,9 +160,7 @@ body {
     display: flex;
     align-items: center;
     padding-top: 80px;
-    background: linear-gradient(135deg, #6b8e23 0%, #8fbc8f 50%, #9acd32 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     color: white;
     position: relative;
     overflow: hidden;
@@ -158,7 +188,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     opacity: 0.3;
 }
 
@@ -292,6 +324,7 @@ body {
     line-height: 1.8;
     margin-top: 1.5rem;
     animation: floatUpDown 3s ease-in-out infinite 1.2s;
+    text-align: center;
 }
 
 .terminal-line {
@@ -301,6 +334,7 @@ body {
     font-weight: 700;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .terminal-prompt {
@@ -498,12 +532,12 @@ section {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--text-primary);
+    color: #f5deb3;
     animation: floatUpDown 3s ease-in-out infinite;
     position: relative;
     font-family: 'Press Start 2P', cursive;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1), 6px 6px 0px rgba(0, 0, 0, 0.5), -1px -1px 0px rgba(0, 0, 0, 0.8);
     image-rendering: pixelated;
 }
 
@@ -522,9 +556,7 @@ section {
 
 /* About Section */
 .about {
-    background: linear-gradient(135deg, #fff9c4 0%, #fffacd 50%, #fffef0 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     position: relative;
     overflow: hidden;
 }
@@ -536,13 +568,9 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 10px,
-        rgba(255, 215, 0, 0.1) 10px,
-        rgba(255, 215, 0, 0.1) 20px
-    );
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     pointer-events: none;
     z-index: 0;
 }
@@ -558,10 +586,13 @@ section {
 }
 
 .about-text p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-secondary);
+    color: #ffffff;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8), -1px -1px 0px rgba(0, 0, 0, 0.5);
+    image-rendering: pixelated;
 }
 
 .about-sections {
@@ -589,6 +620,153 @@ section {
     transform: translateY(-4px) translateX(-4px);
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
     animation-play-state: paused;
+}
+
+/* Terminal UI for Facts */
+.facts {
+    background: #1e1e1e;
+    border: 3px solid #3a3a3a;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    image-rendering: pixelated;
+    animation: floatUpDown 3s ease-in-out infinite;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+}
+
+.facts:nth-child(1) { animation-delay: 0s; }
+.facts:nth-child(2) { animation-delay: 0.5s; }
+
+.facts:hover {
+    transform: translateY(-4px) translateX(-4px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4), 12px 12px 0px rgba(0, 0, 0, 0.3);
+    animation-play-state: paused;
+}
+
+.terminal-header {
+    background: #2d2d2d;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.terminal-button-close {
+    background: #ff5f56;
+}
+
+.terminal-button-minimize {
+    background: #ffbd2e;
+}
+
+.terminal-button-maximize {
+    background: #27c93f;
+}
+
+.terminal-title {
+    color: #d4d4d4;
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    min-height: 200px;
+}
+
+.terminal-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-prompt {
+    color: #4ade80;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-output {
+    margin: 1rem 0;
+    padding-left: 0;
+}
+
+.terminal-line-code {
+    color: #d4d4d4;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    opacity: 0;
+    line-height: 1.6;
+    transform: translateX(-10px);
+}
+
+.terminal-keyword {
+    color: #c586c0;
+    font-weight: 600;
+}
+
+.terminal-class {
+    color: #4ec9b0;
+    font-weight: 600;
+}
+
+.terminal-function {
+    color: #dcdcaa;
+}
+
+.terminal-self {
+    color: #569cd6;
+}
+
+.terminal-attr {
+    color: #9cdcfe;
+}
+
+.terminal-value {
+    color: #ce9178;
+}
+
+.terminal-string {
+    color: #ce9178;
+}
+
+.terminal-line-code .terminal-string {
+    color: #ce9178;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #4ade80;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .subsection-title {
@@ -666,9 +844,7 @@ section {
 
 /* Experience Section */
 .experience {
-    background: linear-gradient(135deg, #ffc0cb 0%, #ffd1dc 50%, #ffe4e9 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     position: relative;
     overflow: hidden;
 }
@@ -680,10 +856,9 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
-    background-size: 50px 50px, 60px 60px;
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     pointer-events: none;
     z-index: 0;
 }
@@ -833,31 +1008,40 @@ section {
 .experience-title {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #2d3e1f;
     margin: 0;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     line-height: 1.6;
     image-rendering: pixelated;
 }
 
 .experience-company {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--primary-color);
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    image-rendering: pixelated;
 }
 
 .experience-date {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    font-style: italic;
+    font-size: 0.7rem;
+    color: #4a5d2e;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
 }
 
 .experience-description {
-    color: var(--text-secondary);
-    line-height: 1.6;
+    color: #2d3e1f;
+    line-height: 1.8;
     margin-bottom: 1rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
 }
 
 .experience-achievements {
@@ -870,8 +1054,12 @@ section {
     padding: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    color: #2d3e1f;
+    line-height: 1.8;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
 }
 
 .experience-achievements li::before {
@@ -894,9 +1082,7 @@ section {
 
 /* Projects Section */
 .projects {
-    background: linear-gradient(135deg, #b2f5ea 0%, #a7f3d0 50%, #ccfbf1 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     position: relative;
     overflow: hidden;
 }
@@ -909,8 +1095,8 @@ section {
     right: 0;
     bottom: 0;
     background: 
-        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255, 255, 255, 0.05) 30px, rgba(255, 255, 255, 0.05) 31px),
-        repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255, 255, 255, 0.05) 30px, rgba(255, 255, 255, 0.05) 31px);
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     pointer-events: none;
     z-index: 0;
 }
@@ -1079,12 +1265,12 @@ section {
     margin-top: auto;
     font-size: 0.9rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #2d3e1f;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 0.5px;
     text-align: center;
     background: var(--bg-card);
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     line-height: 1.4;
     image-rendering: pixelated;
     flex-shrink: 0;
@@ -1306,22 +1492,25 @@ section {
 }
 
 .modal-project-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: #2d3e1f;
     font-family: 'Press Start 2P', cursive;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     line-height: 1.6;
     image-rendering: pixelated;
 }
 
 .modal-project-description {
-    font-size: 1.1rem;
+    font-size: 0.7rem;
     line-height: 1.8;
-    color: var(--text-secondary);
+    color: #2d3e1f;
     margin-bottom: 1.5rem;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
 }
 
 .modal-project-details {
@@ -1349,8 +1538,12 @@ section {
     padding: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    color: #2d3e1f;
+    line-height: 1.8;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
 }
 
 .modal-project-details li::before {
@@ -1475,9 +1668,7 @@ section {
 
 /* Skills Section */
 .skills {
-    background: linear-gradient(135deg, #d4f4dd 0%, #c8f0d4 50%, #e8f8f0 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     position: relative;
     overflow: hidden;
 }
@@ -1489,8 +1680,9 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.1) 20px, rgba(255, 255, 255, 0.1) 21px);
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     pointer-events: none;
     z-index: 0;
 }
@@ -1533,10 +1725,10 @@ section {
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: #2d3e1f;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     line-height: 1.6;
     image-rendering: pixelated;
 }
@@ -1553,13 +1745,16 @@ section {
     border-radius: 0;
     border: 2px solid var(--border-color);
     font-weight: 500;
-    color: var(--text-primary);
+    color: #2d3e1f;
     transition: all 0.2s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
     image-rendering: pixelated;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .skill-item::before {
@@ -1621,9 +1816,7 @@ section {
 
 /* Music Recommendations Section */
 .music {
-    background: linear-gradient(135deg, #e6d3e6 0%, #f0c8f0 50%, #f5d9f5 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     position: relative;
     overflow: hidden;
 }
@@ -1635,10 +1828,9 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 3px, transparent 3px),
-        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.15) 3px, transparent 3px);
-    background-size: 40px 40px, 50px 50px;
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     pointer-events: none;
     z-index: 0;
 }
@@ -1730,11 +1922,11 @@ section {
 .music-title {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #2d3e1f;
     margin-bottom: 0.3rem;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     line-height: 1.6;
     image-rendering: pixelated;
     text-align: center;
@@ -1742,11 +1934,13 @@ section {
 }
 
 .music-artist {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    font-family: 'Comic Neue', cursive;
+    font-size: 0.7rem;
+    color: #4a5d2e;
+    font-family: 'Press Start 2P', monospace;
     margin: 0 0 1rem 0;
     text-align: center;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
 }
 
 .music-card {
@@ -1888,9 +2082,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: linear-gradient(135deg, #ffe4b5 0%, #ffdab9 50%, #fff4e6 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: #6b8e23;
     position: relative;
     overflow: hidden;
 }
@@ -1903,7 +2095,8 @@ section {
     right: 0;
     bottom: 0;
     background: 
-        repeating-linear-gradient(135deg, transparent, transparent 25px, rgba(255, 255, 255, 0.1) 25px, rgba(255, 255, 255, 0.1) 26px);
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(85, 107, 47, 0.2) 8px, rgba(85, 107, 47, 0.2) 9px);
     pointer-events: none;
     z-index: 0;
 }
@@ -2013,11 +2206,14 @@ section {
     padding: 0.875rem;
     border: 3px solid var(--primary-color);
     border-radius: 0;
-    font-family: inherit;
-    font-size: 1rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
     transition: all 0.2s ease;
     box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
     image-rendering: pixelated;
+    color: #2d3e1f;
+    background: #ffffff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .form-group input:focus,
@@ -2028,6 +2224,13 @@ section {
 
 .form-group textarea {
     resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(45, 62, 31, 0.5);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
 }
 
 .heart {

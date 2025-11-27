@@ -534,3 +534,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Terminal typing animation for Facts sections
+function initTerminalFacts() {
+    const factsSections = document.querySelectorAll('.facts');
+    
+    factsSections.forEach((section, sectionIndex) => {
+        const codeLines = section.querySelectorAll('.terminal-line-code');
+        
+        // Animate Python code typing
+        if (codeLines.length > 0) {
+            setTimeout(() => {
+                animateTerminalCode(codeLines);
+            }, sectionIndex * 800); // Stagger sections
+        }
+    });
+}
+
+function animateTerminalCode(codeLines) {
+    codeLines.forEach((line, lineIndex) => {
+        // Store the original HTML structure
+        const originalHTML = line.innerHTML;
+        
+        // Clear and show line with animation
+        line.innerHTML = '';
+        line.style.opacity = '0';
+        line.style.transform = 'translateX(-10px)';
+        
+        setTimeout(() => {
+            // Restore HTML and animate in
+            line.innerHTML = originalHTML;
+            line.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            line.style.opacity = '1';
+            line.style.transform = 'translateX(0)';
+        }, lineIndex * 100);
+    });
+}
+
+// Initialize terminal facts on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for page to be ready, then start terminal animation
+    setTimeout(() => {
+        initTerminalFacts();
+    }, 1500);
+});
+
