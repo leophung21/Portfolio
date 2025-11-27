@@ -1,3 +1,4 @@
+
 // Typing Animation
 function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');

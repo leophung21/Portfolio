@@ -323,8 +323,8 @@ body {
     opacity: 1;
     line-height: 1.8;
     margin-top: 1.5rem;
-    animation: floatUpDown 3s ease-in-out infinite 1.2s;
     text-align: center;
+    position: relative;
 }
 
 .terminal-line {
@@ -753,6 +753,10 @@ section {
 
 .terminal-line-code .terminal-string {
     color: #ce9178;
+}
+
+.terminal-line-code .terminal-string::after {
+    content: none;
 }
 
 .terminal-cursor {
@@ -1639,13 +1643,12 @@ section {
 
 .tech-tag {
     padding: 0.25rem 0.75rem;
-    background: var(--bg-secondary);
+    background: #2d3e1f;
     border-radius: 0;
     border: 2px solid var(--primary-color);
     font-size: 0.75rem;
-    color: var(--primary-color);
+    color: #ffffff;
     font-weight: 500;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
     image-rendering: pixelated;
 }
 
@@ -2174,19 +2177,20 @@ section {
     color: var(--text-primary);
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
     line-height: 1.6;
     image-rendering: pixelated;
 }
 
 .contact-item a {
-    color: var(--primary-color);
+    color: #000000;
     text-decoration: none;
     transition: color 0.3s ease;
+    opacity: 1;
+    text-shadow: none;
 }
 
 .contact-item a:hover {
-    color: var(--primary-dark);
+    color: #000000;
     text-decoration: underline;
 }
 
@@ -2330,6 +2334,10 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.footer p {
+    font-size: 0.7rem;
 }
 
 .footer-links {
